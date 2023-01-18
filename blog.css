@@ -48,3 +48,9 @@ header {
 .my {
   margin: 20px 0;
 }
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 95%;
+  }
+}
