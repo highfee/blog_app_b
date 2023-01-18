@@ -1,10 +1,9 @@
 import "./style.css";
-import dotenv from "dotenv";
+
 import { db } from "./firebase";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { add } from "./createBlog";
 
-// dotenv.config();
 const blogCollectionRef = collection(db, "blogs");
 
 document.addEventListener("DOMContentLoaded", initApp);
