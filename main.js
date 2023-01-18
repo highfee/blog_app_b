@@ -1,7 +1,6 @@
 import "./style.css";
-
 import { db } from "./firebase";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { add } from "./createBlog";
 
 const blogCollectionRef = collection(db, "blogs");
@@ -65,13 +64,7 @@ const generateBlogCards = () => {
           </a>
         </div>
     </div>
-
     `;
-    // document.querySelectorAll(".links").map((item) => {
-    //   item.onclick = () => {
-    //     console.log(item.innerHTML);
-    //   };
-    // });
   });
 };
 

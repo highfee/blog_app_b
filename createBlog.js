@@ -19,7 +19,7 @@ export const add = async (element, title, body, file) => {
   const storage = getStorage();
   const storageRef = ref(storage, file.name);
   const uploadTask = uploadBytesResumable(storageRef, file);
-
+  let date = new Date();
   uploadTask.on(
     "state_changed",
     (snapshot) => {
@@ -36,6 +36,7 @@ export const add = async (element, title, body, file) => {
           body: body.value,
           _id: uuidv4(),
           url: downloadURL,
+          date: date.toDateString(),
         });
         location.reload();
       });
