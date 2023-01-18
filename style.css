@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.blogs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 5%;
+  margin: 50px 0;
+}
+
+.card {
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+  height: 450px;
+  overflow: hidden;
+}
+.card_image {
+  max-height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card_image img:hover {
+  transform: scale(1.1);
+}
+
+.card_image img {
+  width: 100%;
+  height: 200px;
+  transition: all 500ms ease;
+  object-fit: cover;
+}
+.card_body {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+.card > .link {
+  position: absolute;
+
+  right: 20px;
+  bottom: 20px;
+}
+.slug {
+  margin: 15px 0;
+  line-height: 1.5;
+}
+.title {
+  font-size: 22px;
+}
+.title:hover {
+  text-decoration: underline;
+}
+
+.card a {
+  text-decoration: none;
+}
+
+.card span {
+  margin-left: 10px;
+}
+
+header {
+  padding: 0 5%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+header > div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 30px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 4;
+  background: #fff;
+}
+header div > div:has([type="checkbox"]:checked) {
+  transform: rotate(45deg);
+}
+
+header [type="checkbox"] {
+  position: absolute;
+  inset: 0;
+  width: 40px;
+  height: 40px;
+  appearance: none;
+  border-radius: 50%;
+  cursor: pointer;
+  /* z-index: 20; */
+}
+.check {
+  z-index: 1000;
+  position: relative;
+  /* pointer-events: none; */
+  font-weight: 900;
+}
+
+.nav_bg {
+  position: fixed;
+  height: 0;
+  width: 0;
+  border-radius: 50%;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+  background: #f6f6f6;
+  scale: 0;
+  transition: all 300ms linear;
+  pointer-events: none;
+  z-index: 2;
+}
+
+header div > div:has([type="checkbox"]:checked) + .nav_bg {
+  scale: 59;
+  height: 4rem;
+  width: 4rem;
+}
+nav {
+  /* overflow: hidden; */
+  position: fixed;
+  z-index: 4;
+  inset: 0;
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-120%);
+  transition: all 300ms 400ms linear;
+}
+header div > div:has([type="checkbox"]:checked) ~ nav {
+  transform: translateX(0);
+}
+
+nav div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #fff;
+  width: 80%;
+  height: 80vh;
+  padding: 70px;
+}
+#body {
+  position: relative;
+  z-index: 70;
+}
+
+nav input,
+nav textarea {
+  padding: 12px;
+  font-size: 20px;
+  outline: none;
+  width: 100%;
+  resize: vertical;
+}
+nav button {
+  border: 0;
+  padding: 15px;
+  align-self: flex-end;
+  /* width: 90px; */
+  background: rgb(90, 81, 151);
+  font-size: 20px;
+  cursor: pointer;
+}
+input[type="file"] {
+  display: none;
+}
+nav label {
+  font-size: 20px;
+  background-color: rgb(90, 81, 151, 0.5);
+  display: inline-block;
+  color: #fff;
+  padding: 15px;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* nav img:empty {
+  display: none;
+} */
+nav section {
+  display: flex;
+  gap: 20px;
+}
+#testing {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  nav div {
+    padding: 70px 10px;
+  }
+  nav section {
+    flex-direction: column;
+  }
+  #testing {
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+  }
+  .card {
+    height: max-content;
+  }
+}
