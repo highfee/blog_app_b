@@ -14,7 +14,6 @@ let blogs = [];
 const getBlogs = async () => {
   const data = await getDocs(blogCollectionRef);
   blogs = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-  console.log(blogs);
 };
 
 async function initApp() {
@@ -56,7 +55,7 @@ const generateBlogCards = () => {
           <img src=${blog.url} alt="" />
         </div>
         <div class="card_body">
-          <a href="blog.html?id=${blog._id}" class="title">${blog.title}</a>
+           <a href="blog.html?id=${blog._id}">${blog.title}</a>
           <p class="slug">
             ${blog.slug}  
           </p>
@@ -69,6 +68,11 @@ const generateBlogCards = () => {
     </div>
 
     `;
+    // document.querySelectorAll(".links").map((item) => {
+    //   item.onclick = () => {
+    //     console.log(item.innerHTML);
+    //   };
+    // });
   });
 };
 

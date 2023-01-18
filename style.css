@@ -200,6 +200,7 @@ nav section {
   height: 200px;
   object-fit: cover;
 }
+/* .links */
 
 @media screen and (max-width: 600px) {
   nav div {
